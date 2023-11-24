@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/nav.css"> <!--Assuming we are in the 'public folder'-->
+    <link rel="stylesheet" href="/css/addProduct.css"> 
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/add-product">Add Product</a></li>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a href="/">Home</a></li>
+                <li class="main-header__item"><a href="/admin/add-product" class="active">Add Product</a></li>
             </ul>
         </nav>
     </header>
-    <form>
-        <input type="text" placeholder="Enter Product"/>
-        <button type="submit">Submit</button>
-    </form>
+    <main>
+        <form action="/admin/add-product" method="POST" class="product-form">
+            <input type="text" name="title" placeholder="Enter Product"/>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
 </body>
 </html>
