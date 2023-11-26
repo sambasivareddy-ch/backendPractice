@@ -1,5 +1,4 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import {join, resolve} from 'path';
 
 import admin from "./routes/admin.js";
@@ -12,8 +11,17 @@ const app = express();
 const __dirname = resolve();
 const PORT = 3000
 
+// Temporary Database
+const products = [];
+
 // Initialize URL Encode
-app.use(bodyParser.urlencoded({extended: false}));
+// app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false}));
+
+// Setting template engine
+app.set('view engine', 'pug');
+app.set('views', 'views');
+
 // Serve static files
 app.use(express.static(join(__dirname, 'public')));
 
@@ -28,3 +36,5 @@ app.use((req,res,next) => {
 app.listen(PORT, () => {
     console.log("Listening at Port:3000");
 });
+
+export {products};

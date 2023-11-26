@@ -1,6 +1,9 @@
 import express from "express";
 import {join, resolve} from "path";
 
+// local imports
+import { products } from "../app.js";
+
 const router = express.Router();
 
 const __dirname = resolve();
@@ -12,7 +15,9 @@ router.get('/add-product', (req, res, next) => {
 
 // /admin/add-product => POST
 router.post('/add-product', (req, res, next) => {
-  console.log(req.body);
+  products.push({
+    title: req.body['title'],
+  });
   res.redirect('/');
 });
 
