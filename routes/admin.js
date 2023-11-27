@@ -10,7 +10,9 @@ const __dirname = resolve();
 
 // /admin/add-product => GET
 router.get('/add-product', (req, res, next) => {
-  res.status(200).sendFile(join(__dirname, ".", "views", "add-product.html"));
+  res.render('add-product', {
+    docTitle: "Add Product",
+  });
 });
 
 // /admin/add-product => POST

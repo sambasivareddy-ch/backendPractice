@@ -29,7 +29,9 @@ app.use("/admin", admin); // admin filter
 app.use(shop);
 
 app.use((req,res,next) => {
-    res.status(404).sendFile(join(__dirname, "views", "404.html"));
+    res.render('404', {
+        docTitle: "404"
+    })
 })
 
 // Start Server

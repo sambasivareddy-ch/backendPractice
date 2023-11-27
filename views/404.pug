@@ -5,21 +5,16 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title #{docTitle}
         link(rel="stylesheet", href="/css/nav.css")
-        link(rel="stylesheet", href="/css/home.css")
+        link(rel="stylesheet", href="/css/404.css")
     body 
         header.main-header 
             nav.main-header__nav 
                 ul.main-header__item-list 
                     li.main-header__item 
-                        a.active(href="/") Home 
+                        a(href="/") Home 
                     li.main-header__item 
                         a(href="/admin/add-product") Add Product 
         
-        main 
-            h1 My Products 
-            if  prods.length > 0
-                ul.products-list 
-                    each product in prods 
-                        li #{product.title}
-            else 
-                p No Products Added
+        main.main-wrapper
+            h1.error 404 
+            p Page Not Found
